@@ -27,7 +27,7 @@
         tools:targetApi="31">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD6n967LGkJ6oPwS7fuN07cMMTvLtixDC0" />
+            android:value="" /> /*API KEY 공간*/
         <activity
             android:name=".MainActivity"
             android:exported="true">
