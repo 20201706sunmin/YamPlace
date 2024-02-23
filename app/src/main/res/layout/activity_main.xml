@@ -19,7 +19,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:layout_marginTop="15dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:text="Yam플"
             android:textColor="#EAAC52"
             android:fontFamily="@font/jalnan2ttf"
@@ -56,14 +56,16 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Input Keyword"
+            android:hint="검색어를 입력하세요  ex)성수동 고기집"
+            android:textSize="16sp"
             android:inputType="text" />
         <Button
             android:id="@+id/btnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:text=" Search "
+            android:text=" 검색 "
+            android:textSize="16sp"
             android:background="@drawable/memo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

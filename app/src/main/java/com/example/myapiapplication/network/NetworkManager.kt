@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import com.example.myapiapplication.BuildConfig
 import com.example.myapiapplication.R
 import com.example.myapiapplication.data.Restaurant
 import java.io.BufferedReader
@@ -42,8 +43,8 @@ class NetworkManager(val context : Context){
         val url = URL(urlString)
 
 
-        val cliedId = context.resources.getString(R.string.client_id)
-        val clientSecret = context.resources.getString(R.string.client_secret)
+        val cliedId = BuildConfig.NAVER_CLIENT_ID
+        val clientSecret = BuildConfig.NAVER_CLIENT_SECRET
 
         return (url.openConnection() as? HttpURLConnection)?.run {
             readTimeout = 5000

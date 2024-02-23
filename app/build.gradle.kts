@@ -1,8 +1,13 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id ("com.google.devtools.ksp")    // ROOM
 }
+val properties = Properties()
+properties.load(FileInputStream(rootProject.file("local.properties")))
 
 android {
     namespace = "com.example.myapiapplication"
@@ -14,13 +19,20 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "NAVER_CLIENT_ID", properties.getProperty("naver_client_id"))
+        buildConfigField("String", "NAVER_CLIENT_SECRET", properties.getProperty("naver_client_secret"))
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            manifestPlaceholders["GOOGLE_MAP_API_KEY"] = properties["google_map_api_key"] as String
+
+        }
         release {
             isMinifyEnabled = false
+            manifestPlaceholders["GOOGLE_MAP_API_KEY"] = properties["google_map_api_key"] as String
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -36,6 +48,9 @@ android {
     }
     viewBinding {
         enable=true
+    }
+    buildFeatures{
+        buildConfig=true
     }
 }
 
