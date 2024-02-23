@@ -73,7 +73,12 @@ class MainActivity : AppCompatActivity() {
         mainBinding.itemList.adapter = adapter
 
         mainBinding.btnSearch.setOnClickListener {
-            val keyword = mainBinding.etKeyword.text.toString()
+            var keyword = mainBinding.etKeyword.text.toString()
+            if(keyword.isEmpty()){
+                Log.d(TAG, "키워드:"+keyword)
+                Toast.makeText(this@MainActivity, "검색어를 입력해주세요", Toast.LENGTH_SHORT).show()
+                restaurants = ArrayList<Restaurant>(0)
+            }
             addrArr.clear()
             CoroutineScope(Dispatchers.Main).launch{
                 val def = async(Dispatchers.IO) {
