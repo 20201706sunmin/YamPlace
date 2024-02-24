@@ -126,7 +126,7 @@ class ItemDetailActivity : AppCompatActivity() {
             val memo = itemDetailBinding.memoContent.text.toString()
             if(requestCode == MEMO_REQUEST){//requestCode에 따른 메모 insert or update
                 CoroutineScope(Dispatchers.IO).launch {
-                    memoDao.updateMemoById(memo,id!!)
+                    memoDao.updateMemoById(memo, currentPhotoFileName, id!!)
                 }
 
             }else {
